@@ -9,7 +9,7 @@ Execute os comandos no seu terminal:
 $ git clone https://github.com/Nikaum-js/agrotis_test.git
 
 # Entre nele
-$ cd letmeask
+$ cd agrotis_test
 
 # Instale as dependências
 $ yarn
