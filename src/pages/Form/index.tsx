@@ -1,43 +1,50 @@
-import InsertInvitationIcon from "@mui/icons-material/InsertInvitation";
-import {
-  Box,
-  InputAdornment,
-  InputLabel,
-  Select,
-  TextField,
-} from "@mui/material";
-import { Container, FormContent, FormHeader } from "./styles";
+import { useState } from "react";
 import FormControl from "@mui/material/FormControl";
 import MenuItem from "@mui/material/MenuItem";
 import { SelectChangeEvent } from "@mui/material/Select";
-import { useState } from "react";
+import InsertInvitationIcon from "@mui/icons-material/InsertInvitation";
+import {
+  Box,
+  Divider,
+  InputAdornment,
+  InputLabel,
+  ListItemText,
+  Select,
+  TextField,
+} from "@mui/material";
+
 import { useForm } from "react-hook-form";
 import api from "../../services/api";
+import { Container, FormContent, FormHeader } from "./styles";
 
 export function Form() {
   const { register, handleSubmit } = useForm();
-  const [property, setProperty] = useState("");
+  const [property, setProperty] = useState<String[]>([]);
   const [laboratory, setLaboratory] = useState("");
+  const [nameCharactersCounter, setNameCharactersCounter] = useState("");
 
   const handleChangeProperty = (event: SelectChangeEvent) => {
-    setProperty(event.target.value);
+    setProperty(event.target.value.split(", ", 2));
+    console.log(event.target.value.split(", ", 2));
   };
 
   const handleChangeLaboratory = (event: SelectChangeEvent) => {
     setLaboratory(event.target.value);
+    console.log(event.target.value);
   };
 
   async function handleSubmitForm(data: any): Promise<void> {
     try {
       const response = await api.post("posts", {
         ...data,
+        nome: nameCharactersCounter,
         dataInicial: new Date(data.dataInicial).toISOString(),
         dataFinal: new Date(data.dataFinal).toISOString(),
         infosPropriedades: {
           id: 12345,
-          nome: property,
+          nome: property[0],
         },
-        cnpj: "fgsdsfdsfs",
+        cnpj: property[1],
         laboratorio: {
           id: 1234,
           nome: laboratory,
@@ -63,20 +70,24 @@ export function Form() {
           <Box component="form">
             <TextField
               id="standard-basic"
-              label="Nome *"
+              label="Nome"
               variant="standard"
+              required
+              onChange={(value) => {
+                setNameCharactersCounter(value.target.value);
+              }}
               InputProps={{
                 endAdornment: (
-                  <InputAdornment position="start">0/40</InputAdornment>
+                  <InputAdornment position="start">{`${nameCharactersCounter.length} / 40`}</InputAdornment>
                 ),
               }}
               sx={{ width: "576px" }}
-              {...register("nome")}
             />
 
             <TextField
               id="standard-date"
-              label="Data inicial *"
+              label="Data inicial"
+              required
               InputLabelProps={{ shrink: true }}
               InputProps={{
                 endAdornment: (
@@ -93,7 +104,8 @@ export function Form() {
 
             <TextField
               id="standard-basic"
-              label="Data final *"
+              label="Data final"
+              required
               InputProps={{
                 endAdornment: (
                   <InputAdornment position="end">
@@ -111,51 +123,92 @@ export function Form() {
 
           <Box component="form" sx={{}}>
             <FormControl variant="standard" sx={{ width: "563px" }}>
-              <InputLabel id="demo-simple-select-standard-label">
-                Propriedades *
+              <InputLabel required id="demo-simple-select-standard-label">
+                Propriedades
               </InputLabel>
               <Select
                 labelId="demo-simple-select-standard-label"
                 id="demo-simple-select-standard"
-                value={property}
+                value={property[0]}
                 onChange={handleChangeProperty}
-                label="Age"
+                label="Property"
+                displayEmpty
+                native={false}
+                renderValue={(value) => <ListItemText primary={property[0]} />}
               >
-                <MenuItem value="">
-                  <em>Nenhum</em>
+                <MenuItem value="Agrotis1, 58.885.777/0001-60">
+                  <ListItemText
+                    primary="Agrotis 1"
+                    secondary="58.885.777/0001-60"
+                  />
                 </MenuItem>
-                <MenuItem value="Agrotis 1">Agrotis 1</MenuItem>
-
-                <MenuItem value="Agrotis 2">Agrotis 2</MenuItem>
-                <MenuItem value="Agrotis 3">Agrotis 3</MenuItem>
-                <MenuItem value="Agrotis 4">Agrotis 4</MenuItem>
-                <MenuItem value="Agrotis 5">Agrotis 5</MenuItem>
+                <Divider />
+                <MenuItem value="Agrotis2, 58.885.777/0001-61">
+                  <ListItemText
+                    primary="Agrotis 2"
+                    secondary="58.885.777/0001-61"
+                  />
+                </MenuItem>
+                <Divider />
+                <MenuItem value="Agrotis3, 58.885.777/0001-62">
+                  <ListItemText
+                    primary="Agrotis 3"
+                    secondary="58.885.777/0001-62"
+                  />
+                </MenuItem>
+                <Divider />
+                <MenuItem value="Agrotis4, 58.885.777/0001-63">
+                  <ListItemText
+                    primary="Agrotis 4"
+                    secondary="58.885.777/0001-63"
+                  />
+                </MenuItem>
+                <Divider light />
+                <MenuItem value="Agrotis5, 58.885.777/0001-64">
+                  <ListItemText
+                    primary="Agrotis 5"
+                    secondary="58.885.777/0001-64"
+                  />
+                </MenuItem>
               </Select>
+              <InputAdornment position="start" sx={{ mt: 1.8 }}>
+              { property[1] ?  `CNPJ ${property[1]}` : "" }
+              </InputAdornment>
             </FormControl>
 
             <FormControl
               variant="standard"
-              sx={{ width: "563px", marginLeft: "5px" }}
+              sx={{ width: "563px", marginLeft: "10px" }}
             >
-              <InputLabel id="demo-simple-select-standard-label">
-                Laboratório *
+              <InputLabel id="demo-simple-select-standard-label" required>
+                Laboratório
               </InputLabel>
               <Select
                 labelId="demo-simple-select-standard-label"
                 id="demo-simple-select-standard"
                 value={laboratory}
                 onChange={handleChangeLaboratory}
-                label="Age"
+                label="Laboratory"
               >
-                <MenuItem value="">
-                  <em>Nenhum</em>
+                <MenuItem value="Agro Skynet">
+                  <ListItemText primary="Agro Skynet" />
                 </MenuItem>
-
-                <MenuItem value="Agro Skynet">Agro Skynet</MenuItem>
-                <MenuItem value="Umbrella Agro">Umbrella Agro</MenuItem>
-                <MenuItem value="Osborn Agro">Osborn Agro</MenuItem>
-                <MenuItem value="Skyrim Agro">Skyrim Agro</MenuItem>
-                <MenuItem value="Agro Brasil">Agro Brasil</MenuItem>
+                <Divider />
+                <MenuItem value="Umbrella Agro">
+                  <ListItemText primary="Umbrella Agro" />
+                </MenuItem>
+                <Divider />
+                <MenuItem value="Osborn Agro">
+                  <ListItemText primary="Osborn Agro" />
+                </MenuItem>
+                <Divider />
+                <MenuItem value="Skyrim Agro">
+                  <ListItemText primary="Skyrim Agro" />
+                </MenuItem>
+                <Divider light />
+                <MenuItem value="Agro Brasil">
+                  <ListItemText primary="Agro Brasil" />
+                </MenuItem>
               </Select>
             </FormControl>
           </Box>

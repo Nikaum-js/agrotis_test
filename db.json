@@ -151,6 +151,162 @@
         "nome": "Agro Skynet"
       },
       "id": 13
+    },
+    {
+      "nome": "Nikolas Santana de Arruda",
+      "dataInicial": "2003-08-21T00:00:00.000Z",
+      "dataFinal": "1989-02-21T00:00:00.000Z",
+      "observacoes": "",
+      "infosPropriedades": {
+        "id": 12345,
+        "nome": "Agrotis 2"
+      },
+      "cnpj": "fgsdsfdsfs",
+      "laboratorio": {
+        "id": 1234,
+        "nome": "Osborn Agro"
+      },
+      "id": 14
+    },
+    {
+      "nome": "Nikolas Santana de Arruda",
+      "dataInicial": "2003-08-21T00:00:00.000Z",
+      "dataFinal": "2003-08-21T00:00:00.000Z",
+      "observacoes": "ahahahah",
+      "infosPropriedades": {
+        "id": 12345,
+        "nome": [
+          "Agrotis1",
+          "58.885.777/0001-60"
+        ]
+      },
+      "cnpj": "58.885.777/0001-60",
+      "laboratorio": {
+        "id": 1234,
+        "nome": "Osborn Agro"
+      },
+      "id": 15
+    },
+    {
+      "nome": "",
+      "dataInicial": "1111-11-11T00:00:00.000Z",
+      "dataFinal": "1111-11-11T00:00:00.000Z",
+      "observacoes": "bahjbdahjsbdhjbajhsd",
+      "infosPropriedades": {
+        "id": 12345,
+        "nome": [
+          "Agrotis1",
+          "58.885.777/0001-60"
+        ]
+      },
+      "cnpj": "58.885.777/0001-60",
+      "laboratorio": {
+        "id": 1234,
+        "nome": "Agro Skynet"
+      },
+      "id": 16
+    },
+    {
+      "nome": "",
+      "dataInicial": "1111-11-11T00:00:00.000Z",
+      "dataFinal": "1111-11-11T00:00:00.000Z",
+      "observacoes": "bahjbdahjsbdhjbajhsd",
+      "infosPropriedades": {
+        "id": 12345,
+        "nome": [
+          "Agrotis1",
+          "58.885.777/0001-60"
+        ]
+      },
+      "cnpj": "58.885.777/0001-60",
+      "laboratorio": {
+        "id": 1234,
+        "nome": "Agro Skynet"
+      },
+      "id": 17
+    },
+    {
+      "nome": "asdasdad",
+      "dataInicial": "1111-11-11T00:00:00.000Z",
+      "dataFinal": "1111-11-11T00:00:00.000Z",
+      "observacoes": "bahjbdahjsbdhjbajhsd",
+      "infosPropriedades": {
+        "id": 12345,
+        "nome": [
+          "Agrotis1",
+          "58.885.777/0001-60"
+        ]
+      },
+      "cnpj": "58.885.777/0001-60",
+      "laboratorio": {
+        "id": 1234,
+        "nome": "Agro Skynet"
+      },
+      "id": 18
+    },
+    {
+      "nome": "asdasdad",
+      "dataInicial": "1111-11-11T00:00:00.000Z",
+      "dataFinal": "1111-11-11T00:00:00.000Z",
+      "observacoes": "bahjbdahjsbdhjbajhsd",
+      "infosPropriedades": {
+        "id": 12345,
+        "nome": "Agrotis1"
+      },
+      "cnpj": "58.885.777/0001-60",
+      "laboratorio": {
+        "id": 1234,
+        "nome": "Agro Skynet"
+      },
+      "id": 19
+    },
+    {
+      "dataInicial": "2003-08-21T00:00:00.000Z",
+      "dataFinal": "2022-12-22T00:00:00.000Z",
+      "observacoes": "hajhajhaj",
+      "nome": "Nikolas Santana de Arruda",
+      "infosPropriedades": {
+        "id": 12345,
+        "nome": "Agrotis4"
+      },
+      "cnpj": "58.885.777/0001-63",
+      "laboratorio": {
+        "id": 1234,
+        "nome": "Umbrella Agro"
+      },
+      "id": 20
+    },
+    {
+      "dataInicial": "2003-08-23T00:00:00.000Z",
+      "dataFinal": "2021-11-21T00:00:00.000Z",
+      "observacoes": "",
+      "nome": "Nikolas Santana de Arruda",
+      "infosPropriedades": {
+        "id": 12345,
+        "nome": "Agrotis2"
+      },
+      "cnpj": "58.885.777/0001-61",
+      "laboratorio": {
+        "id": 1234,
+        "nome": "Umbrella Agro"
+      },
+      "id": 21
+    },
+    {
+      "dataInicial": "2003-08-21T00:00:00.000Z",
+      "dataFinal": "2022-08-21T00:00:00.000Z",
+      "observacoes": "bla bla bla",
+      "nome": "Nikolas Santana de Arruda",
+      "infosPropriedades": {
+        "id": 12345,
+        "nome": "Agrotis2"
+      },
+      "cnpj": "58.885.777/0001-61",
+      "laboratorio": {
+        "id": 1234,
+        "nome": "Agro Skynet"
+      },
+      "id": 22
     }
   ],
   "comments": [
