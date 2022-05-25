@@ -25,17 +25,15 @@ export function Form() {
 
   const handleChangeProperty = (event: SelectChangeEvent) => {
     setProperty(event.target.value.split(", ", 2));
-    console.log(event.target.value.split(", ", 2));
   };
 
   const handleChangeLaboratory = (event: SelectChangeEvent) => {
     setLaboratory(event.target.value);
-    console.log(event.target.value);
   };
 
   async function handleSubmitForm(data: any): Promise<void> {
     try {
-      const response = await api.post("posts", {
+      const response = await api.post("form", {
         ...data,
         nome: nameCharactersCounter,
         dataInicial: new Date(data.dataInicial).toISOString(),

@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
   :root {
@@ -18,23 +18,25 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
   }
-  html {
-    scroll-behavior: smooth;
-  }
+  
   body { 
     background-color: var(--color_background);
   }
+
   button {
     cursor: pointer;
     background-color: transparent;
     border: none;
   }
+
   a, u {
     text-decoration: none;
   }
+
   ul {
     list-style: none;
   }
+
   html {
     @media (max-width: 1080px) {
       font-size: 93.75%; //15px
@@ -44,8 +46,4 @@ export const GlobalStyle = createGlobalStyle`
       font-size: 87.5%; //14px
     }
   }
-`;
-
-export const Flex = styled.main`
-  display: flex;
 `;
